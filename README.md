@@ -10,7 +10,7 @@
   <a href="#-contributing">🤝 Contributing</a> •
 </p>
 
-# About
+## About
 
 The OpenAPI Schema Builder is a simple tool designed to transform Postman collections and Swagger schemas into OpenAPI definitions. This is especially useful for integrating API documentation with tools like **Burp Suite**, which require OpenAPI schemas instead of Postman collections. The tool also supports custom placeholder replacement, making it adaptable for various API endpoint patterns.
 
