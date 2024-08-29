@@ -1,4 +1,16 @@
-# OpenAPI Schema Builder
+<h1 align="center"><img src="https://github.com/user-attachments/assets/8a908adf-fb4d-45a2-872d-59e3a65de835"></h1>
+
+
+<p align="center">
+  <a href="#about">📖 About</a> •
+  <a href="#-features">🚀 Features</a> •
+  <a href="#-installation">🎯 Installation</a> •
+  <a href="#-usage">🛠 Usage</a> •
+  <a href="#-integration-with-burp-suite">🌟 Integration with Burp Suite</a> •
+  <a href="#-contributing">🤝 Contributing</a> •
+</p>
+
+# About
 
 The OpenAPI Schema Builder is a simple tool designed to transform Postman collections and Swagger schemas into OpenAPI definitions. This is especially useful for integrating API documentation with tools like **Burp Suite**, which require OpenAPI schemas instead of Postman collections. The tool also supports custom placeholder replacement, making it adaptable for various API endpoint patterns.
 
@@ -175,7 +187,7 @@ This tool bridges the gap by converting Postman collections to OpenAPI schemas, 
 
 <img width="1635" alt="image" src="https://github.com/user-attachments/assets/638fc4c5-5f8d-4b47-8f05-a592aae27857">
 
-## 💡 Contributing
+## 🤝 Contributing
 
 We welcome contributions! If you have ideas for improvements or bug fixes, please fork the repository and submit a pull request. Make sure to include tests and documentation for any changes.
 
