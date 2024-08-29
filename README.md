@@ -167,7 +167,7 @@ Burp Suite now introduces a feature that allows uploading API documentation dire
 
 This tool bridges the gap by converting Postman collections to OpenAPI schemas, enabling smooth integration with Burp Suite’s new API documentation upload feature. Enhance your API security testing with Burp Suite by ensuring your Postman collections are readily available in OpenAPI format.
 
-### Uploading `output.json` file to Burp API Scan under the `Target` tab
+### Uploading `output.json` file to Burp API Scan under the `Dashboard` tab
 
 <img width="1635" alt="image" src="https://github.com/user-attachments/assets/26005301-deb1-4540-bc6f-a5c4ebbb1ae6">
 
