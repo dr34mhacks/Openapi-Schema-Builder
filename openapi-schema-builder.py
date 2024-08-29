@@ -27,7 +27,7 @@ def print_ascii_art():
     print(colored(ASCII_ART, 'cyan'))
 
 def display_usage():
-    print(colored("Usage: python3 convert.py -i <input_file> -o <output_file> [--baseurl <base_url>] [--placeholders <placeholders>]", 'yellow'))
+    print(colored("Usage: python3 openapi-schema-builder.py -i <input_file> -o <output_file> [--baseurl <base_url>] [--placeholders <placeholders>]", 'yellow'))
     print("\nArguments:")
     print("  -i, --input        Input JSON file (Postman/Swagger)")
     print("  -o, --output       Output OpenAPI JSON file")
