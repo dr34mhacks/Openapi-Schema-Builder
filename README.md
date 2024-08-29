@@ -1,5 +1,4 @@
-<h1 align="center"><img src="https://github.com/user-attachments/assets/8a908adf-fb4d-45a2-872d-59e3a65de835"></h1>
-
+<h1 align="center"><img src="https://github.com/user-attachments/assets/2c4707bb-fbdd-41b3-a655-108cde36f3b4" alt="logo"></h1>
 
 <p align="center">
   <a href="#about">📖 About</a> •
