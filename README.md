@@ -32,10 +32,10 @@ cd Openapi-Schema-Builder
 pip3 install -r requirements.txt
 ```
 
-To use the OpenAPI Schema Converter, run the script with the following command:
+To use the OpenAPI Schema Builder, run the script with the following command:
 
 ```bash
-python3 converter.py -i <input_file> -o <output_file> --baseurl <base_url>
+python3 openapi-schema-builder.py -i <input_file> -o <output_file> --baseurl <base_url>
 ```
 <img width="1635" alt="image" src="https://github.com/user-attachments/assets/e13f2f3f-7e55-4a69-a415-9ee898fcb972">
 
