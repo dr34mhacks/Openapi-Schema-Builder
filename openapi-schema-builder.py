@@ -6,7 +6,6 @@ from urllib.parse import urlparse
 from termcolor import colored
 import time
 import os
-import uuid
 
 # ASCII Art
 # This script will allow you to convert postman collection into openapi schema required by burp suite
@@ -95,16 +94,14 @@ def replace_all_placeholders(json_data, base_url):
 
 def handle_placeholders(value):
     if value == "<uuid>":
-        return str(uuid.uuid4())  # Generate and return a new UUID
-    elif value == "<boolean>":
-        return False  # Replace <boolean> with False
+        return {"type": "string", "format": "uuid"}
     elif value == "<string>":
-        return "string"
+        return {"type": "string"}
     elif value == "<double>":
-        return 0.0
+        return {"type": "number", "format": "double"}
     elif isinstance(value, str) and value.startswith("<") and value.endswith(">"):
-        return value.replace("<", "").replace(">", "")  # Simplified placeholder replacement
-    return value
+        return {"type": "string", "description": f"Placeholder: {value}"}
+    return {"type": "string"}
 
 def convert_to_schema(data):
     if isinstance(data, dict):
@@ -119,7 +116,7 @@ def convert_to_schema(data):
                 else:
                     properties[key] = {"type": "array", "items": {"type": "object"}}
             else:
-                properties[key] = {"type": type(handle_placeholders(value)).__name__}
+                properties[key] = handle_placeholders(value)
         return {"type": "object", "properties": properties}
     elif isinstance(data, list):
         if data:
@@ -191,11 +188,6 @@ def convert_postman_to_openapi(postman_schema, user_base_url=None, placeholder_m
                             request_body = convert_to_schema(raw_body)
                         except json.JSONDecodeError:
                             print(colored(f"Warning: Could not decode body for {item['name']}", 'yellow'))
-                        except Exception as e:
-                            print(colored(f"Error processing request body: {str(e)}", 'red'))
-                            skipped_count += 1
-                            skipped_endpoints.append(item['name'])
-                            return
 
                 openapi_schema["paths"][path][method] = {
                     "summary": item["name"],
