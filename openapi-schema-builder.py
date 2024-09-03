@@ -191,6 +191,11 @@ def convert_postman_to_openapi(postman_schema, user_base_url=None, placeholder_m
                             request_body = convert_to_schema(raw_body)
                         except json.JSONDecodeError:
                             print(colored(f"Warning: Could not decode body for {item['name']}", 'yellow'))
+                        except Exception as e:
+                            print(colored(f"Error processing request body: {str(e)}", 'red'))
+                            skipped_count += 1
+                            skipped_endpoints.append(item['name'])
+                            return
 
                 openapi_schema["paths"][path][method] = {
                     "summary": item["name"],
