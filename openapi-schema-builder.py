@@ -6,6 +6,7 @@ from urllib.parse import urlparse
 from termcolor import colored
 import time
 import os
+import uuid
 
 # ASCII Art
 # This script will allow you to convert postman collection into openapi schema required by burp suite
@@ -95,6 +96,8 @@ def replace_all_placeholders(json_data, base_url):
 def handle_placeholders(value):
     if value == "<uuid>":
         return {"type": "string", "format": "uuid"}
+    elif value == "<boolean>":
+        return {"type": "boolean", "example": False}
     elif value == "<string>":
         return {"type": "string"}
     elif value == "<double>":
