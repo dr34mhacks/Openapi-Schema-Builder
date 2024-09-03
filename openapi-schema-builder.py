@@ -95,16 +95,16 @@ def replace_all_placeholders(json_data, base_url):
 
 def handle_placeholders(value):
     if value == "<uuid>":
-        return {"type": "string", "format": "uuid"}
+        return str(uuid.uuid4())  # Generate and return a new UUID
     elif value == "<boolean>":
-        return {"type": "boolean", "example": False}
+        return False  # Replace <boolean> with False
     elif value == "<string>":
-        return {"type": "string"}
+        return "string"
     elif value == "<double>":
-        return {"type": "number", "format": "double"}
+        return 0.0
     elif isinstance(value, str) and value.startswith("<") and value.endswith(">"):
-        return {"type": "string", "description": f"Placeholder: {value}"}
-    return {"type": "string"}
+        return value.replace("<", "").replace(">", "")  # Simplified placeholder replacement
+    return value
 
 def convert_to_schema(data):
     if isinstance(data, dict):
@@ -119,7 +119,7 @@ def convert_to_schema(data):
                 else:
                     properties[key] = {"type": "array", "items": {"type": "object"}}
             else:
-                properties[key] = handle_placeholders(value)
+                properties[key] = {"type": type(handle_placeholders(value)).__name__}
         return {"type": "object", "properties": properties}
     elif isinstance(data, list):
         if data:
